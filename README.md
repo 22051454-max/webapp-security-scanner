@@ -64,3 +64,7 @@ demo_target/        deliberately misconfigured portal + hardened twin
 ## Disclaimer
 
 Only scan applications you own or have written permission to assess.
+
+## Author and contributors
+
+- **Sandeep Kashyap** ([@sktut](https://github.com/sktut)), author and maintainer
