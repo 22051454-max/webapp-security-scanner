@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WebSec Scanner</title><style>
+:root{--line:#dde2ea}body{font-family:system-ui,sans-serif;max-width:1000px;margin:24px auto;padding:0 16px;color:#1d2433;background:#f7f8fb}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+textarea{width:100%;min-height:90px;padding:8px;border:1px solid var(--line);border-radius:6px;font:inherit;box-sizing:border-box}
+button{background:#0b5394;color:#fff;border:0;border-radius:6px;padding:9px 16px;cursor:pointer;font:inherit}button.alt{background:#fff;color:#0b5394;border:1px solid #0b5394}
+.sev{display:inline-block;padding:2px 8px;border-radius:10px;color:#fff;font-size:12px;font-weight:600}
+.critical{background:#7b1fa2}.high{background:#c62828}.medium{background:#ef6c00}.low{background:#1565c0}.info{background:#607d8b}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid var(--line);padding:6px;text-align:left;font-size:14px;vertical-align:top}
+.err{color:#c62828}.muted{color:#667085;font-size:13px}code{word-break:break-all}
+</style></head><body>
+<h1>WebSec Scanner</h1><p class="muted">Passive web application security assessment: security headers, Content Security Policy, cookies, vulnerable JavaScript libraries and information disclosure. No attack traffic is sent.</p>
+<form method="post" class="card"><label><b>Target URLs</b> (one per line, up to {{ max_targets }})</label>
+<textarea name="urls" placeholder="https://example.com"></textarea>
+<p><label><input type="checkbox" name="authorized" value="1"> I am authorised to assess these targets</label></p>
+<button>Run assessment</button></form>
+<form method="post" class="card"><input type="hidden" name="demo" value="1"><b>No target handy?</b> Scan the bundled, deliberately misconfigured demo portal (and its hardened twin) in-process.
+<p><button class="alt">Scan demo portal</button></p></form>
+{% if error %}<p class="err">{{ error }}</p>{% endif %}
+{% if results %}<div class="card"><h2>Results</h2><p>Download report: <a href="/report.html" target="_blank">HTML</a> · <a href="/report.md">Markdown</a> · <a href="/report.json">JSON</a></p>
+{% for r in results %}<h3>{{ r.target }} {% if not r.error %}<span class="muted">risk {{ r.risk_score }}/100 · {{ r.findings|length }} findings</span>{% endif %}</h3>
+{% if r.error %}<p class="err">{{ r.error }}</p>{% else %}
+<table><tr><th>Severity</th><th>Finding</th><th>Evidence</th><th>Fix</th></tr>
+{% for f in r.findings %}<tr><td><span class="sev {{ f.severity }}">{{ f.severity }}</span></td><td>{{ f.title }}</td><td><code>{{ f.evidence }}</code></td><td>{{ f.remediation }}</td></tr>
+{% else %}<tr><td colspan="4">No issues found 🎉</td></tr>{% endfor %}</table>{% endif %}{% endfor %}</div>{% endif %}
+</body></html>

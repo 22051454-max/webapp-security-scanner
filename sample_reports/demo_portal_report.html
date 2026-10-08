@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vulnerability Assessment Report</title><style>
+body{font-family:system-ui,sans-serif;max-width:1000px;margin:24px auto;padding:0 16px;color:#1d2433}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #dde2ea;padding:6px 8px;font-size:14px;text-align:left}
+.sev{display:inline-block;padding:2px 8px;border-radius:10px;color:#fff;font-size:12px;font-weight:600}
+.critical{background:#7b1fa2}.high{background:#c62828}.medium{background:#ef6c00}.low{background:#1565c0}.info{background:#607d8b}
+.finding{border:1px solid #dde2ea;border-radius:8px;padding:12px 16px;margin:12px 0}code{background:#f1f3f7;padding:1px 4px;border-radius:4px;word-break:break-all}
+.muted{color:#667085}
+</style></head><body>
+<h1>Web Application Vulnerability Assessment Report</h1>
+<p class="muted">Generated 2026-10-08 17:16 UTC · 2 target(s) · passive, non-intrusive checks</p>
+<h2>Executive summary</h2>
+<table><tr><th>Target</th><th>Status</th><th>Critical</th><th>High</th><th>Medium</th><th>Low</th><th>Info</th><th>Risk</th></tr>
+<tr><td>https://demo-portal.local/</td><td>200</td><td>0</td><td>6</td><td>11</td><td>10</td><td>4</td><td>96/100</td></tr><tr><td>https://demo-portal.local/hardened</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0/100</td></tr></table>
+<p>Total findings: <b>31</b></p>
+<hr><h2>https://demo-portal.local/</h2>
+<p class="muted">Final URL <code>https://demo-portal.local/</code> · HTTP 200 · 2026-10-08T17:16:05+00:00</p>
+<p><b>Libraries:</b> jquery 1.12.4 ⚠️, jquery-ui 1.12.1 ⚠️, bootstrap 3.3.7 ⚠️, moment 2.18.1 ⚠️, lodash 4.17.4 ⚠️</p><div class="finding"><span class="sev high">HIGH</span> <b>Vulnerable JavaScript library: jquery 1.12.4</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://code.jquery.com/jquery-1.12.4.min.js: XSS when passing untrusted HTML to DOM manipulation methods (CVE-2020-11022, CVE-2020-11023)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade jquery to 3.5.0 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-11022" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2020-11022</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-11023" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2020-11023</a> </p></div>
+<div class="finding"><span class="sev high">HIGH</span> <b>Vulnerable JavaScript library: moment 2.18.1</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js: Path traversal in locale loading (CVE-2022-24785)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade moment to 2.29.2 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24785" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2022-24785</a> </p></div>
+<div class="finding"><span class="sev high">HIGH</span> <b>Vulnerable JavaScript library: moment 2.18.1</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js: ReDoS in RFC 2822 date parsing (CVE-2022-31129)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade moment to 2.29.4 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-31129" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2022-31129</a> </p></div>
+<div class="finding"><span class="sev high">HIGH</span> <b>Vulnerable JavaScript library: lodash 4.17.4</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>/static/js/lodash-4.17.4.min.js: Prototype pollution in defaultsDeep (CVE-2019-10744)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade lodash to 4.17.12 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-10744" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2019-10744</a> </p></div>
+<div class="finding"><span class="sev high">HIGH</span> <b>Vulnerable JavaScript library: lodash 4.17.4</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>/static/js/lodash-4.17.4.min.js: Command injection via template() (CVE-2021-23337)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade lodash to 4.17.21 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23337" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2021-23337</a> </p></div>
+<div class="finding"><span class="sev high">HIGH</span> <b>Password form submits over HTTP</b> <span class="muted">· Transport</span>
+<p><b>Evidence:</b> <code>http://portal.example/login</code></p><p><b>Impact:</b> Credentials are sent in clear text.</p><p><b>Remediation:</b> Serve the login page and its form action over HTTPS only.</p>
+</div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Missing HTTP Strict-Transport-Security</b> <span class="muted">· Security headers</span>
+<p><b>Evidence:</b> <code>Header `strict-transport-security` not present</code></p><p><b>Impact:</b> Browsers may connect over plain HTTP, allowing SSL-stripping and session hijacking on hostile networks.</p><p><b>Remediation:</b> Send `Strict-Transport-Security: max-age=31536000; includeSubDomains` on all HTTPS responses.</p>
+<p class="muted"><a href="https://owasp.org/www-project-secure-headers/#strict-transport-security" rel="noopener noreferrer">https://owasp.org/www-project-secure-headers/#strict-transport-security</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Missing clickjacking protection (X-Frame-Options / frame-ancestors)</b> <span class="muted">· Security headers</span>
+<p><b>Evidence:</b> <code>Header `x-frame-options` not present</code></p><p><b>Impact:</b> Pages can be framed by attacker sites to trick users into clicking hidden buttons (clickjacking).</p><p><b>Remediation:</b> Send `X-Frame-Options: DENY` or CSP `frame-ancestors &#39;none&#39;` (or a list of trusted origins).</p>
+<p class="muted"><a href="https://owasp.org/www-community/attacks/Clickjacking" rel="noopener noreferrer">https://owasp.org/www-community/attacks/Clickjacking</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>CSP allows &#39;unsafe-inline&#39; scripts</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>script-src: &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https:</code></p><p><b>Impact:</b> Inline script injection (the most common XSS) is not blocked.</p><p><b>Remediation:</b> Move inline scripts to files or use nonces/hashes, then remove &#39;unsafe-inline&#39;.</p>
+</div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>CSP allows &#39;unsafe-eval&#39;</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>script-src: &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https:</code></p><p><b>Impact:</b> eval()-style sinks can execute attacker-controlled strings.</p><p><b>Remediation:</b> Refactor code that uses eval/new Function/string setTimeout and remove &#39;unsafe-eval&#39;.</p>
+</div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>CSP script sources are overly broad</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>script-src includes https:</code></p><p><b>Impact:</b> Attackers can load scripts from any host matching the wildcard (or data: URIs).</p><p><b>Remediation:</b> List exact trusted origins, or use &#39;strict-dynamic&#39; with nonces.</p>
+</div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Cookie `PHPSESSID` missing Secure, HttpOnly, SameSite</b> <span class="muted">· Cookies</span>
+<p><b>Evidence:</b> <code>PHPSESSID=abc123demo; Path=/</code></p><p><b>Impact:</b> Session cookies without HttpOnly can be stolen via XSS; without Secure they leak over HTTP; without SameSite they are sent on cross-site requests (CSRF).</p><p><b>Remediation:</b> Set cookies with `Secure; HttpOnly; SameSite=Lax` (or Strict).</p>
+</div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Vulnerable JavaScript library: jquery 1.12.4</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://code.jquery.com/jquery-1.12.4.min.js: Cross-domain AJAX responses executed as script (XSS) (CVE-2015-9251)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade jquery to 3.0.0 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-9251" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2015-9251</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Vulnerable JavaScript library: jquery 1.12.4</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://code.jquery.com/jquery-1.12.4.min.js: Prototype pollution in jQuery.extend(true, ...) (CVE-2019-11358)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade jquery to 3.4.0 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11358" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2019-11358</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Vulnerable JavaScript library: jquery-ui 1.12.1</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js: XSS via untrusted option values (altField, *Text options, of) (CVE-2021-41182, CVE-2021-41183, CVE-2021-41184)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade jquery-ui to 1.13.0 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41182" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2021-41182</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41183" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2021-41183</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41184" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2021-41184</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Vulnerable JavaScript library: bootstrap 3.3.7</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js: XSS in collapse/scrollspy/tooltip data attributes (CVE-2018-14040, CVE-2018-14041, CVE-2018-14042)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade bootstrap to 3.4.0 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-14040" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2018-14040</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-14041" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2018-14041</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-14042" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2018-14042</a> </p></div>
+<div class="finding"><span class="sev medium">MEDIUM</span> <b>Vulnerable JavaScript library: bootstrap 3.3.7</b> <span class="muted">· Vulnerable components</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js: XSS in tooltip/popover data-template (CVE-2019-8331)</code></p><p><b>Impact:</b> Known, publicly documented flaws in this version can be exploited (OWASP A06: Vulnerable and Outdated Components).</p><p><b>Remediation:</b> Upgrade bootstrap to 3.4.1 or later (latest stable recommended) and retest dependent code.</p>
+<p class="muted"><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-8331" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2019-8331</a> </p></div>
+<div class="finding"><span class="sev low">LOW</span> <b>Missing X-Content-Type-Options</b> <span class="muted">· Security headers</span>
+<p><b>Evidence:</b> <code>Header `x-content-type-options` not present</code></p><p><b>Impact:</b> Browsers may MIME-sniff responses, turning uploaded files into executable scripts.</p><p><b>Remediation:</b> Send `X-Content-Type-Options: nosniff`.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>Missing Referrer-Policy</b> <span class="muted">· Security headers</span>
+<p><b>Evidence:</b> <code>Header `referrer-policy` not present</code></p><p><b>Impact:</b> Full URLs (which may contain tokens or IDs) leak to third-party sites through the Referer header.</p><p><b>Remediation:</b> Send `Referrer-Policy: strict-origin-when-cross-origin` or stricter.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>Technology/version disclosure via `server`</b> <span class="muted">· Information disclosure</span>
+<p><b>Evidence:</b> <code>`server: Apache/2.4.29 (Ubuntu)`</code></p><p><b>Impact:</b> Version strings help attackers pick known exploits for the exact software in use.</p><p><b>Remediation:</b> Remove or genericise the `server` header in the web server / framework configuration.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>Technology/version disclosure via `x-powered-by`</b> <span class="muted">· Information disclosure</span>
+<p><b>Evidence:</b> <code>`x-powered-by: PHP/7.2.24`</code></p><p><b>Impact:</b> Version strings help attackers pick known exploits for the exact software in use.</p><p><b>Remediation:</b> Remove or genericise the `x-powered-by` header in the web server / framework configuration.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>CSP does not restrict object-src</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>`script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https:`</code></p><p><b>Impact:</b> Plugin content (&lt;object&gt;/&lt;embed&gt;) can be used to bypass script restrictions.</p><p><b>Remediation:</b> Add `object-src &#39;none&#39;`.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>CSP does not restrict base-uri</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>`script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https:`</code></p><p><b>Impact:</b> An injected &lt;base&gt; tag can redirect relative script URLs to an attacker host.</p><p><b>Remediation:</b> Add `base-uri &#39;none&#39;` or `&#39;self&#39;`.</p>
+</div>
+<div class="finding"><span class="sev low">LOW</span> <b>Third-party script without Subresource Integrity</b> <span class="muted">· Supply chain</span>
+<p><b>Evidence:</b> <code>https://code.jquery.com/jquery-1.12.4.min.js</code></p><p><b>Impact:</b> If the CDN is compromised, modified code runs on your site.</p><p><b>Remediation:</b> Add `integrity` and `crossorigin` attributes to third-party &lt;script&gt; tags.</p>
+<p class="muted"><a href="https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity" rel="noopener noreferrer">https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity</a> </p></div>
+<div class="finding"><span class="sev low">LOW</span> <b>Third-party script without Subresource Integrity</b> <span class="muted">· Supply chain</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js</code></p><p><b>Impact:</b> If the CDN is compromised, modified code runs on your site.</p><p><b>Remediation:</b> Add `integrity` and `crossorigin` attributes to third-party &lt;script&gt; tags.</p>
+<p class="muted"><a href="https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity" rel="noopener noreferrer">https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity</a> </p></div>
+<div class="finding"><span class="sev low">LOW</span> <b>Third-party script without Subresource Integrity</b> <span class="muted">· Supply chain</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js</code></p><p><b>Impact:</b> If the CDN is compromised, modified code runs on your site.</p><p><b>Remediation:</b> Add `integrity` and `crossorigin` attributes to third-party &lt;script&gt; tags.</p>
+<p class="muted"><a href="https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity" rel="noopener noreferrer">https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity</a> </p></div>
+<div class="finding"><span class="sev low">LOW</span> <b>Third-party script without Subresource Integrity</b> <span class="muted">· Supply chain</span>
+<p><b>Evidence:</b> <code>https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js</code></p><p><b>Impact:</b> If the CDN is compromised, modified code runs on your site.</p><p><b>Remediation:</b> Add `integrity` and `crossorigin` attributes to third-party &lt;script&gt; tags.</p>
+<p class="muted"><a href="https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity" rel="noopener noreferrer">https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity</a> </p></div>
+<div class="finding"><span class="sev info">INFO</span> <b>Missing Permissions-Policy</b> <span class="muted">· Security headers</span>
+<p><b>Evidence:</b> <code>Header `permissions-policy` not present</code></p><p><b>Impact:</b> Embedded third-party content can request powerful browser features (camera, geolocation).</p><p><b>Remediation:</b> Send a `Permissions-Policy` that disables features the site does not use, e.g. `camera=(), geolocation=()`.</p>
+</div>
+<div class="finding"><span class="sev info">INFO</span> <b>CORS allows any origin</b> <span class="muted">· CORS</span>
+<p><b>Evidence:</b> <code>`Access-Control-Allow-Origin: *`</code></p><p><b>Impact:</b> Fine for public static assets, risky on endpoints returning user data.</p><p><b>Remediation:</b> Restrict to an allowlist on any endpoint that returns non-public data.</p>
+</div>
+<div class="finding"><span class="sev info">INFO</span> <b>CSP does not set frame-ancestors</b> <span class="muted">· Content Security Policy</span>
+<p><b>Evidence:</b> <code>`script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https:`</code></p><p><b>Impact:</b> Framing is controlled only by X-Frame-Options, if present.</p><p><b>Remediation:</b> Add `frame-ancestors &#39;self&#39;` (or &#39;none&#39;).</p>
+</div>
+<div class="finding"><span class="sev info">INFO</span> <b>Sensitive-looking HTML comments</b> <span class="muted">· Information disclosure</span>
+<p><b>Evidence:</b> <code>TODO: remove debug login admin/admin before go-live</code></p><p><b>Impact:</b> Comments can reveal internal paths, credentials or debugging notes.</p><p><b>Remediation:</b> Strip developer comments from production builds.</p>
+</div>
+<hr><h2>https://demo-portal.local/hardened</h2>
+<p class="muted">Final URL <code>https://demo-portal.local/hardened</code> · HTTP 200 · 2026-10-08T17:16:05+00:00</p>
+<p>No issues identified by the automated checks.</p><p class="muted">Automated findings should be validated manually. Assess only systems you are authorised to test.</p></body></html>
